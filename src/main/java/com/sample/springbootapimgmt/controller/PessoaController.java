@@ -1,7 +1,9 @@
 package com.sample.springbootapimgmt.controller;
 
+import javax.validation.Valid;
+
 import com.sample.springbootapimgmt.dto.MessageResponseDTO;
-import com.sample.springbootapimgmt.entity.Pessoa;
+import com.sample.springbootapimgmt.dto.request.PessoaDTO;
 import com.sample.springbootapimgmt.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,8 +31,8 @@ public class PessoaController {
     // RequestBody: objeto está vindo de uma requisição externa
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public MessageResponseDTO criaPessoa(@RequestBody Pessoa pessoa) {
-        return pessoaService.criaPessoa(pessoa);
+    public MessageResponseDTO criaPessoa(@RequestBody @Valid PessoaDTO pessoaDTO) {
+        return pessoaService.criaPessoa(pessoaDTO);
     }
 
     // Teste
