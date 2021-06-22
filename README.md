@@ -1,4 +1,4 @@
 https://digitalinnovation.one/bootcamps/gft-start-2-java
 
-* Deploy to Heroku: https://springboot-apimgmt.herokuapp.com/ (OK)
-* Problemas de integração Lombok-MapStruct: corrigidos (OK)
+* Deploy no Heroku: https://springboot-apimgmt.herokuapp.com/ (OK)
+* Compatibilidade Lombok-MapStruct: corrigida (OK)

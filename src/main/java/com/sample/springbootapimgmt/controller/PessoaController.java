@@ -1,10 +1,10 @@
 package com.sample.springbootapimgmt.controller;
 
-import javax.validation.Valid;
-
 import com.sample.springbootapimgmt.dto.MessageResponseDTO;
 import com.sample.springbootapimgmt.dto.request.PessoaDTO;
 import com.sample.springbootapimgmt.service.PessoaService;
+import java.util.List;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,19 +35,18 @@ public class PessoaController {
         return pessoaService.criaPessoa(pessoaDTO);
     }
 
-    // Testes
     @GetMapping
-    public String msg() {
-        return "API Test";
+    public List<PessoaDTO> listAll() {
+        return pessoaService.listAll();
     }
 }
 
-// Mais testes
+// Teste
 @RestController
 @RequestMapping("/")
 class Root {
     @GetMapping
-    public String msgMain() {
+    public String msg() {
         return "Whoops! Aqui é a raiz. Tente outro caminho.";
     }
 }
