@@ -3,6 +3,7 @@ package com.sample.springbootapimgmt.service;
 import com.sample.springbootapimgmt.dto.MessageResponseDTO;
 import com.sample.springbootapimgmt.dto.request.PessoaDTO;
 import com.sample.springbootapimgmt.entity.Pessoa;
+import com.sample.springbootapimgmt.exception.PessoaException;
 import com.sample.springbootapimgmt.mapper.PessoaMapper;
 import com.sample.springbootapimgmt.repository.PessoaRepositorio;
 import java.util.List;
@@ -43,5 +44,13 @@ public class PessoaService {
             .stream()
             .map(pessoaMapper::toDto)
             .collect(Collectors.toList());
+    }
+
+    // Busca
+    public PessoaDTO findById(Long id) throws PessoaException {
+        // Caso não encontre, lança a exceção (expressão lambda)
+        Pessoa pessoaExiste = pessoaRepositorio.findById(id)
+            .orElseThrow(() -> new PessoaException(id));
+        return pessoaMapper.toDto(pessoaExiste);
     }
 }
