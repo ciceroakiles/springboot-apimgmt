@@ -35,9 +35,19 @@ public class PessoaController {
         return pessoaService.criaPessoa(pessoaDTO);
     }
 
-    // Teste
+    // Testes
     @GetMapping
     public String msg() {
         return "API Test";
+    }
+}
+
+// Mais testes
+@RestController
+@RequestMapping("/")
+class Root {
+    @GetMapping
+    public String msgMain() {
+        return "Whoops! Aqui é a raiz. Tente outro caminho.";
     }
 }
