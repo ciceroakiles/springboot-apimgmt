@@ -46,11 +46,22 @@ public class PessoaService {
             .collect(Collectors.toList());
     }
 
-    // Busca
+    // Busca (usa o método verificaPessoa)
     public PessoaDTO findById(Long id) throws PessoaException {
+        return pessoaMapper.toDto(verificaPessoa(id));
+    }
+
+    // Deleção (usa o método verificaPessoa)
+    public void deleteById(Long id) throws PessoaException {
+        verificaPessoa(id);
+        pessoaRepositorio.deleteById(id);
+    }
+
+    // Verifica se pessoa existe
+    private Pessoa verificaPessoa(Long id) throws PessoaException {
         // Caso não encontre, lança a exceção (expressão lambda)
         Pessoa pessoaExiste = pessoaRepositorio.findById(id)
             .orElseThrow(() -> new PessoaException(id));
-        return pessoaMapper.toDto(pessoaExiste);
+        return pessoaExiste;
     }
 }
