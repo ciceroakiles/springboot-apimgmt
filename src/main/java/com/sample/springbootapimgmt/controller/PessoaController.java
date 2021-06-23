@@ -44,7 +44,8 @@ public class PessoaController {
         return pessoaService.listAll();
     }
 
-    // Busca pessoa por id (e id na URL)
+    // Busca pessoa por id
+    // PathVariable: id na URL
     @GetMapping("/{id}")
     public PessoaDTO findById(@PathVariable Long id) throws PessoaException {
         return pessoaService.findById(id);
