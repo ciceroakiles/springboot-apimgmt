@@ -8,22 +8,20 @@ import com.sample.springbootapimgmt.mapper.PessoaMapper;
 import com.sample.springbootapimgmt.repository.PessoaRepositorio;
 import java.util.List;
 import java.util.stream.Collectors;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+// Injeção de dependência (repositório)
+// Essa linha equivale a um construtor do serviço com pessoaRepositorio e @Autowired 
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class PessoaService {
     
     private PessoaRepositorio pessoaRepositorio;
 
     // Mapper
     private PessoaMapper pessoaMapper = PessoaMapper.INSTANCE;
-
-    // Injeção de dependência: repositório
-    @Autowired
-    public PessoaService(PessoaRepositorio pessoaRepositorio) {
-        this.pessoaRepositorio = pessoaRepositorio;
-    }
 
     // Inserção de pessoa (usa o método criaMessageResponse)
     public MessageResponseDTO criaPessoa(PessoaDTO pessoaDTO) throws PessoaException {
