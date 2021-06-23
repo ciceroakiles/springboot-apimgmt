@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 // Injeção de dependência (repositório) == construtor do serviço com pessoaRepositorio e @Autowired
-// (erro desconhecido no mapper)
+// (erro no mapper)
 //@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class PessoaService {
     // Mapper
