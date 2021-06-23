@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 //
 @Entity
 public class Pessoa {
-    
+
     // ID e estratégia de geração
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
