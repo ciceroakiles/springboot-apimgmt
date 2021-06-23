@@ -12,29 +12,29 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import lombok.AllArgsConstructor;
+
 @RestController
 @RequestMapping("/api/v1/pessoas")
+// Injeção de dependência (serviço)
+// Essa linha equivale a um construtor do controller com pessoaService e @Autowired 
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class PessoaController {
-    
+
     private PessoaService pessoaService;
 
-    // Injeção de dependência: serviço
-    @Autowired
-    public PessoaController(PessoaService pessoaService) {
-        this.pessoaService = pessoaService;
-    }
-    
     // Método POST
     // ResponseStatus: código de status de resposta HTTP 201
     // RequestBody: objeto está vindo de uma requisição externa
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public MessageResponseDTO criaPessoa(@RequestBody @Valid PessoaDTO pessoaDTO) {
+    public MessageResponseDTO criaPessoa(@RequestBody @Valid PessoaDTO pessoaDTO) throws PessoaException {
         return pessoaService.criaPessoa(pessoaDTO);
     }
 
@@ -57,6 +57,11 @@ public class PessoaController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteById(@PathVariable Long id) throws PessoaException {
         pessoaService.deleteById(id);
+    }
+
+    @PutMapping("/{id}")
+    public MessageResponseDTO updateById(@PathVariable Long id, @RequestBody @Valid PessoaDTO pessoaDTO) throws PessoaException {
+        return pessoaService.updateById(id, pessoaDTO);
     }
 }
 
