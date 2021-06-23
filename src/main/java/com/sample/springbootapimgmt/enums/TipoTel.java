@@ -7,7 +7,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum TipoTel {
-    
+
     RESIDENCIAL("Residencial"),
     MOVEL("Movel"),
     COMERCIAL("Comercial");

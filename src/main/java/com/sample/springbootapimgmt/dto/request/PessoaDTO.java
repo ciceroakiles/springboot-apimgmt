@@ -1,6 +1,5 @@
 package com.sample.springbootapimgmt.dto.request;
 
-import com.sample.springbootapimgmt.entity.Telefone;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -39,5 +38,5 @@ public class PessoaDTO {
 
     @Valid
     @NotEmpty
-    private List<Telefone> telefones;
+    private List<TelefoneDTO> telefones;
 }
