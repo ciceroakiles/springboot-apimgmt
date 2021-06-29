@@ -12,7 +12,7 @@
 	<artifactId>springboot-apimgmt</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>springboot-apimgmt</name>
-	<description>Descrição do projeto</description>
+	<description>API de gerenciamento de pessoas</description>
 	<properties>
 		<java.version>11</java.version>
 		<version.lombok>1.18.18</version.lombok>
