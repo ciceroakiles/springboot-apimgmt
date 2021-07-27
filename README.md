@@ -21,3 +21,5 @@ Operações HTTP da API:
 https://digitalinnovation.one/bootcamps/gft-start-2-java
 
 https://digitalinnovation.one/bootcamps/santander-fullstack-developer
+
+https://digitalinnovation.one/bootcamps/everis-new-talents-java
