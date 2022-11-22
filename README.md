@@ -1,7 +1,5 @@
 # API de gerenciamento de pessoas usando Java e Spring Framework
 
-Deploy no Heroku: https://springboot-apimgmt.herokuapp.com/ - OK
-
 Compatibilidade Lombok-MapStruct - OK
 
 Operações HTTP da API:
